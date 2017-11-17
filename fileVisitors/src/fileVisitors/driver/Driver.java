@@ -45,8 +45,8 @@ public class Driver {
 			PopulateVisitor popVisitor = new PopulateVisitor();
 			tree.accept(popVisitor);
 			
-			PalindromeHighlight palinVisitor = new PalindromeHighlight();
-			tree.accept(palinVisitor);
+			PalindromeHighlight palindromeVisitor = new PalindromeHighlight();
+			tree.accept(palindromeVisitor);
 			
 			PrimeLength primLenVisitor = new PrimeLength();
 			tree.accept(primLenVisitor);
