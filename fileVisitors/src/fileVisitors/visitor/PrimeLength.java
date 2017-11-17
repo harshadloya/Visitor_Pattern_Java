@@ -24,11 +24,10 @@ public class PrimeLength implements VisitorI
 		{
 			checkPrimeLengthRecursively(root.getLeft());
 			isPrimeLen = true;
-			
 			int length = root.getWord().length();
-			if(length > 2)
+			if(length >= 2)
 			{
-				if(length % 2 == 0)
+				if(length != 2 && length % 2 == 0)
 				{
 					isPrimeLen = false;
 				}
@@ -40,7 +39,6 @@ public class PrimeLength implements VisitorI
 						if(length % x == 0)
 						{
 							isPrimeLen = false;
-							break;
 						}
 					}
 				}
