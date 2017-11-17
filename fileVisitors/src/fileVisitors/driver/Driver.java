@@ -55,7 +55,7 @@ public class Driver {
 			PrintTree printTreeVisitor = new PrintTree(res);
 			tree.accept(printTreeVisitor);
 			
-			System.out.println("Kya chal rha hai kya pata!!!");
+			//System.out.println("Kya chal rha hai kya pata!!!");
 			
 		} else {
 			System.err.println("Invalid number of arguments, please recheck");
