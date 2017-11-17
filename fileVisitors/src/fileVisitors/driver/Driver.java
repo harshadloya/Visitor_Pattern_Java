@@ -42,7 +42,7 @@ public class Driver {
 			}
 
 			RedBlackTree tree = new RedBlackTree();
-			PopulateVisitor popVisitor = new PopulateVisitor();
+			PopulateVisitor popVisitor = new PopulateVisitor(inputFilePath);
 			tree.accept(popVisitor);
 			
 			PalindromeHighlight palindromeVisitor = new PalindromeHighlight();
@@ -62,4 +62,6 @@ public class Driver {
 			System.exit(1);
 		}
 	}
+	
+	
 }

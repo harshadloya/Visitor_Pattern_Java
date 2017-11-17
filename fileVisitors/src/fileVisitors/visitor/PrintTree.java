@@ -16,14 +16,7 @@ public class PrintTree implements VisitorI
 	@Override
 	public RedBlackTree visit(RedBlackTree tree) 
 	{
-		/*Results result = new Results(outputFilePath);
-		
-		result.storeNewResult("The total number of words: " + 0);
-		result.storeNewResult("The total number of characters: " + 1);
-		result.storeNewResult("The total number of distinct words: "+ 2);
-		result.writeScheduleToFile();*/
-		
-		calculateCountsRecursively(tree.getRoot());
+		printDistinctWordsRecursively(tree.getRoot());
 		outputFile.writeScheduleToFile();
 		return tree;
 	}
@@ -32,14 +25,14 @@ public class PrintTree implements VisitorI
 	 * Method used by getCounts() to traverse the tree recursively and calculate the required counts.
 	 * @param root - Root Node of the Tree
 	 */
-	private void calculateCountsRecursively(Node root)
+	private void printDistinctWordsRecursively(Node root)
 	{
 		if(root != null)
 		{
-			calculateCountsRecursively(root.getLeft()); 
+			printDistinctWordsRecursively(root.getLeft()); 
 			if(root.getWordOccurances() != 0)
 				outputFile.storeNewResult(root.getWord());
-			calculateCountsRecursively(root.getRight());
+			printDistinctWordsRecursively(root.getRight());
 		}
 	}
 

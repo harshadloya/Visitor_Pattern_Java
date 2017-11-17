@@ -7,10 +7,21 @@ import fileVisitors.util.RedBlackTree;
 
 public class PopulateVisitor implements VisitorI
 {
+	String inputFile;
+	
+	public PopulateVisitor() 
+	{
+	}
+	
+	public PopulateVisitor(String inputFileIn)
+	{
+		inputFile = inputFileIn;
+	}
+	
 	@Override
 	public RedBlackTree visit(RedBlackTree tree)
 	{
-		FileProcessor inputFileProc = new FileProcessor("./input.txt");
+		FileProcessor inputFileProc = new FileProcessor(inputFile);
 		
 		MyLogger.writeMessage("PopulateThread class run() method was called", MyLogger.DebugLevel.THREAD_RUN);
 		String line = "";
