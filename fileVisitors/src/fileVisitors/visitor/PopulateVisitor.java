@@ -8,7 +8,7 @@ import fileVisitors.util.RedBlackTree;
 public class PopulateVisitor implements VisitorI
 {
 	@Override
-	public RedBlackTree visit(RedBlackTree tree) 
+	public RedBlackTree visit(RedBlackTree tree)
 	{
 		FileProcessor inputFileProc = new FileProcessor("./input.txt");
 		

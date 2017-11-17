@@ -6,8 +6,6 @@ import fileVisitors.visitor.VisitorI;
  * Referenced from http://algs4.cs.princeton.edu/33balanced/RedBlackBST.java.html
  */
 
-
-
 /**
  * Implementation of a balanced binary search tree - RED BLACK Tree
  * @author hloya

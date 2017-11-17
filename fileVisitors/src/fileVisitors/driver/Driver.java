@@ -1,8 +1,12 @@
 package fileVisitors.driver;
 
 import fileVisitors.store.Results;
-import fileVisitors.util.FileProcessor;
 import fileVisitors.util.MyLogger;
+import fileVisitors.util.RedBlackTree;
+import fileVisitors.visitor.PalindromeHighlight;
+import fileVisitors.visitor.PopulateVisitor;
+import fileVisitors.visitor.PrimeLength;
+import fileVisitors.visitor.PrintTree;
 
 /**
  * Class containing the main method which is the starting point of code
@@ -37,13 +41,21 @@ public class Driver {
 				System.exit(1);
 			}
 
-			FileProcessor fileProc = new FileProcessor(inputFilePath);
-			Results result = new Results(outputFilePath);
+			RedBlackTree tree = new RedBlackTree();
+			PopulateVisitor popVisitor = new PopulateVisitor();
+			tree.accept(popVisitor);
 			
-			result.storeNewResult("The total number of words: " + 0);
-			result.storeNewResult("The total number of characters: " + 1);
-			result.storeNewResult("The total number of distinct words: "+ 2);
-			result.writeScheduleToFile();
+			PalindromeHighlight palinVisitor = new PalindromeHighlight();
+			tree.accept(palinVisitor);
+			
+			PrimeLength primLenVisitor = new PrimeLength();
+			tree.accept(primLenVisitor);
+			
+			Results res = new Results(outputFilePath);
+			PrintTree printTreeVisitor = new PrintTree(res);
+			tree.accept(printTreeVisitor);
+			
+			System.out.println("Kya chal rha hai kya pata!!!");
 			
 		} else {
 			System.err.println("Invalid number of arguments, please recheck");
