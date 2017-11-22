@@ -14,11 +14,10 @@ public class PrintTree implements VisitorI
 	}
 	
 	@Override
-	public RedBlackTree visit(RedBlackTree tree) 
+	public void visit(RedBlackTree tree) 
 	{
 		printDistinctWordsRecursively(tree.getRoot());
 		outputFile.writeScheduleToFile();
-		return tree;
 	}
 	
 	/**

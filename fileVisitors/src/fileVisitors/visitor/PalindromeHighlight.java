@@ -2,18 +2,16 @@ package fileVisitors.visitor;
 
 import fileVisitors.util.Node;
 import fileVisitors.util.RedBlackTree;
+import fileVisitors.util.VisitorHelper;
 
 public class PalindromeHighlight implements VisitorI
 {
-	boolean isPalindrome = false;
-	
 	@Override
-	public RedBlackTree visit(RedBlackTree tree) 
+	public void visit(RedBlackTree tree) 
 	{
 		checkPalindromeRecursively(tree.getRoot());
-		return tree;
 	}
-	
+
 	/**
 	 * Method used to traverse the tree recursively and check if the word is Palindrome.
 	 * @param root - Root Node of the Tree
@@ -23,26 +21,15 @@ public class PalindromeHighlight implements VisitorI
 		if(root != null)
 		{
 			checkPalindromeRecursively(root.getLeft());
-			
-			isPalindrome = true;
-			
-			int length = root.getWord().length();
-			if(length > 3)
+
+			VisitorHelper helper = new VisitorHelper();
+			boolean isPalindrome = helper.palindromeCheck(root);
+
+			if(isPalindrome)
 			{
-				for(int x = 0; x < length/2; x++)
-				{
-					if(root.getWord().charAt(x) != root.getWord().charAt(length-x-1))
-					{
-						isPalindrome = false;
-						break;
-					}
-				}	
-				if(isPalindrome)
-				{
-					isPalindrome = false;
-					root.setWord(root.getWord().toUpperCase());
-				}
+				root.setWord(root.getWord().toUpperCase());
 			}
+
 			checkPalindromeRecursively(root.getRight());
 		}
 	}

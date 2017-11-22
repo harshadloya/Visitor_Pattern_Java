@@ -19,7 +19,7 @@ public class PopulateVisitor implements VisitorI
 	}
 	
 	@Override
-	public RedBlackTree visit(RedBlackTree tree)
+	public void visit(RedBlackTree tree)
 	{
 		FileProcessor inputFileProc = new FileProcessor(inputFile);
 		
@@ -56,8 +56,5 @@ public class PopulateVisitor implements VisitorI
 				}
 			}
 		}
-		
-		return tree;
 	}
-
 }
