@@ -15,13 +15,15 @@ import fileVisitors.visitor.PrintTree;
  * @author hloya
  *
  */
-public class Driver {
+public class Driver 
+{
 	/**
 	 * Main method responsible for creating visitors and perform their operations.
 	 * 
 	 * @param args - Input given from command line which contains location of Input file, Output file and Debug Level.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		String inputFilePath = "";
 		String outputFilePath = "";
 		int debugVal = -1;
@@ -34,9 +36,9 @@ public class Driver {
 			{
 				debugVal = Integer.parseInt(args[2]);
 				MyLogger.setDebugValue(debugVal);
-			} else 
+			} 
+			else 
 			{
-				
 				System.err.println("The last parameter should be a digit in range of 0-4 specifying debug level desired");
 				System.exit(1);
 			}
@@ -54,10 +56,9 @@ public class Driver {
 			Results res = new Results(outputFilePath);
 			PrintTree printTreeVisitor = new PrintTree(res);
 			tree.accept(printTreeVisitor);
-			
-			//System.out.println("Kya chal rha hai kya pata!!!");
-			
-		} else {
+		} 
+		else 
+		{
 			System.err.println("Invalid number of arguments, please recheck");
 			System.exit(1);
 		}

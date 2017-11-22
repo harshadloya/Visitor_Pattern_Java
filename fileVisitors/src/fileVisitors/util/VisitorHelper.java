@@ -2,7 +2,6 @@ package fileVisitors.util;
 
 public class VisitorHelper 
 {
-
 	public boolean palindromeCheck(Node node)
 	{
 		int length = node.getWord().length();

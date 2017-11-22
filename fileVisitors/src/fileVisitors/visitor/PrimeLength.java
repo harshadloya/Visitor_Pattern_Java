@@ -1,13 +1,12 @@
 package fileVisitors.visitor;
 
+import fileVisitors.util.MyLogger;
 import fileVisitors.util.Node;
 import fileVisitors.util.RedBlackTree;
 import fileVisitors.util.VisitorHelper;
 
 public class PrimeLength implements VisitorI
 {
-	boolean isPrimeLen = false;
-
 	@Override
 	public void visit(RedBlackTree tree) 
 	{
@@ -30,6 +29,7 @@ public class PrimeLength implements VisitorI
 			if(isPrimeLen)
 			{
 				root.setWord(root.getWord()+"-PRIME");
+				MyLogger.writeMessage(root.getWord(), MyLogger.DebugLevel.PRIME_LEN);
 			}
 			checkPrimeLengthRecursively(root.getRight());
 		}

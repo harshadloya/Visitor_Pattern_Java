@@ -1,5 +1,6 @@
 package fileVisitors.visitor;
 
+import fileVisitors.util.MyLogger;
 import fileVisitors.util.Node;
 import fileVisitors.util.RedBlackTree;
 import fileVisitors.util.VisitorHelper;
@@ -28,6 +29,7 @@ public class PalindromeHighlight implements VisitorI
 			if(isPalindrome)
 			{
 				root.setWord(root.getWord().toUpperCase());
+				MyLogger.writeMessage(root.getWord(), MyLogger.DebugLevel.PALINDROME);
 			}
 
 			checkPalindromeRecursively(root.getRight());

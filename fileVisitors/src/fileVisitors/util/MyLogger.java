@@ -4,14 +4,14 @@ package fileVisitors.util;
 public class MyLogger
 {
 
-	/*DEBUG_VALUE=4 [Print to stdout everytime a constructor is called]
-      DEBUG_VALUE=3 [Print to stdout everytime a thread's run() method is called]
-      DEBUG_VALUE=2 [Print to stdout everytime a line is read from input file]
-      DEBUG_VALUE=1 [Print to stdout everytime a word is deleted]
-      DEBUG_VALUE=0 [No output should be printed from the application, except the line "The average preference value is X.Y"]
+	/*DEBUG_VALUE=4 [Print to stdout everytime a constructor is called.]
+      DEBUG_VALUE=3 [Print to stdout everytime a Palindrome is found.]
+      DEBUG_VALUE=2 [Print to stdout everytime a Prime Length Word is found.]
+      DEBUG_VALUE=1 [Print to stdout the final tree.]
+      DEBUG_VALUE=0 [No output should be printed from the application."]
 	 */
 
-	public static enum DebugLevel {RELEASE, WORD_DELETE, LINE_READ, THREAD_RUN, CONSTRUCTOR};
+	public static enum DebugLevel {RELEASE, TREE, PRIME_LEN, PALINDROME, CONSTRUCTOR};
 
 	private static DebugLevel debugLevel;
 
@@ -25,9 +25,9 @@ public class MyLogger
 		switch (levelIn) 
 		{
 		case 4: debugLevel = DebugLevel.CONSTRUCTOR; break;
-		case 3: debugLevel = DebugLevel.THREAD_RUN; break;
-		case 2: debugLevel = DebugLevel.LINE_READ; break;
-		case 1: debugLevel = DebugLevel.WORD_DELETE; break;
+		case 3: debugLevel = DebugLevel.PALINDROME; break;
+		case 2: debugLevel = DebugLevel.PRIME_LEN; break;
+		case 1: debugLevel = DebugLevel.TREE; break;
 		case 0: debugLevel = DebugLevel.RELEASE; break;
 		}
 	}

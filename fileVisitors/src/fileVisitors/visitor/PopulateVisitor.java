@@ -11,10 +11,12 @@ public class PopulateVisitor implements VisitorI
 	
 	public PopulateVisitor() 
 	{
+		MyLogger.writeMessage("PopulateVisitor class default constructor was called", MyLogger.DebugLevel.CONSTRUCTOR);
 	}
 	
 	public PopulateVisitor(String inputFileIn)
 	{
+		MyLogger.writeMessage("PopulateVisitor class paramterized constructor was called", MyLogger.DebugLevel.CONSTRUCTOR);
 		inputFile = inputFileIn;
 	}
 	
@@ -23,13 +25,11 @@ public class PopulateVisitor implements VisitorI
 	{
 		FileProcessor inputFileProc = new FileProcessor(inputFile);
 		
-		MyLogger.writeMessage("PopulateThread class run() method was called", MyLogger.DebugLevel.THREAD_RUN);
 		String line = "";
 		String temp[];
 
 		while((line = inputFileProc.readLine("")) != null)
 		{
-			MyLogger.writeMessage("Thread "+ Thread.currentThread().getName()+" -> "+line, MyLogger.DebugLevel.LINE_READ);
 			//remove leading or trailing whitespaces if any
 			line = line.trim();
 			temp = line.split("\\s+");
